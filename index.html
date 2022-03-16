@@ -30,7 +30,7 @@
         <!-- TO DO START -->
         <div class="col-12 col-md-6 col-xl-3 mb-3">
           <div class="card">
-            <h4 class="card-header bg-dark text-light">
+            <h4 class="card-header bg-dark text-light d-flex align-items-center">
               To Do
             </h4>
             <ul id="list-toDo" class="list-group list-group-flush">
@@ -41,7 +41,7 @@
         <!-- IN PROGRESS START -->
         <div class="col-12 col-md-6 col-xl-3 mb-3">
           <div class="card">
-            <h4 class="card-header bg-dark text-light">
+            <h4 class="card-header bg-dark text-light d-flex align-items-center">
               In Progress
             </h4>
             <ul id="list-inProgress" class="list-group list-group-flush">
@@ -52,7 +52,7 @@
         <!-- IN REVIEW START -->
         <div class="col-12 col-md-6 col-xl-3 mb-3">
           <div  class="card">
-            <h4 class="card-header bg-dark text-light">
+            <h4 class="card-header bg-dark text-light d-flex align-items-center">
               In Review
             </h4>
             <ul id="list-inReview" class="list-group list-group-flush">
@@ -63,7 +63,7 @@
         <!-- DONE START -->
         <div class="col-12 col-md-6 col-xl-3 mb-3">
           <div class="card">
-            <h4 class="card-header bg-dark text-light">
+            <h4 class="card-header bg-dark text-light d-flex align-items-center">
               Done
             </h4>
             <ul id="list-done" class="list-group list-group-flush">
@@ -73,11 +73,12 @@
         <!-- DONE END -->
       </div>
       <!-- TRASH ZONE START -->
-      <div id="trash" class="mt-auto">
+      <footer id="trash" class="mt-auto">
         <div class="w-100 bg-danger p-3 text-center text-light display-4 mt-auto">
+          <span class="oi oi-trash mx-auto mb-4"></span>
           Drop Here to Remove
         </div>
-      </div>
+      </footer>
       <!-- TRASH ZONE END -->
     </main>
   </div>
@@ -114,8 +115,10 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- make sure jQuery UI is loaded after core jQuery library -->
+  <!-- jQuery UI MUST LOAD AFTER core jQuery library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <!-- Touch Punch for mobile touch support, MUST LOAD AFTER jQuery UI -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="./assets/js/script.js"></script>
