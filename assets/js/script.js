@@ -71,6 +71,7 @@ var auditTask = function(taskEl) {
     (Math.abs(moment().diff(time, "days")) <= 2) {
       $(taskEl).addClass("list-group-item-warning");
   }
+
 };
 
 // sorting tasks: select by class, set to .sortable (makes every el with matching class into sortable list)
@@ -308,4 +309,11 @@ $("#remove-tasks").on("click", function() {
 // load tasks for the first time
 loadTasks();
 
-
+// runs auditTask every 30 mins 
+setInterval(function(){
+  $(".card .list-group-item").each(function(index, el) {
+    auditTask(el);
+  });
+}, 1800000);
+// or use this math function
+// }, (1000 * 60) * 30);
