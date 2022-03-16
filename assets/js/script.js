@@ -190,9 +190,9 @@ $("#remove-tasks").on("click", function() {
   saveTasks();
 });
 
-// sorting tasks: select by class, set to sortable (makes every el with matching class into sortable list)
-// connectWith to any other lists matching selector class
+// sorting tasks: select by class, set to .sortable (makes every el with matching class into sortable list)
 $(".card .list-group").sortable({
+  // connectWith to any other lists matching selector class
   connectWith: $(".card .list-group"),
   scroll: false,
   tolerance: "pointer",
@@ -248,6 +248,24 @@ $(".card .list-group").sortable({
   }
 });
 
+// make #trash droppable area that accepts any element with matching class
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  // "touch" means draggable overlaps droppable by any amount
+  tolerance: "touch",
+  // triggers when accepted draggable is dropped on droppable
+  // "ui" variable is an object that contains a property called 'draggable'
+  // removing tasks triggers update() in sortable, bypassing the need to run saveTasks()
+  drop: function(event, ui) {
+    ui.draggable.remove();
+  },
+  over: function(event, ui) {
+    console.log("over");
+  },
+  out: function(event, ui) {
+    console.log("out");
+  }
+});
 
 
 // load tasks for the first time
