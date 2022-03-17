@@ -152,6 +152,11 @@ $("#trash").droppable({
   }
 });
 
+// minDate set to be one day from current date
+$("#modalDueDate").datepicker({
+  minDate: 1
+});
+
 // modal was triggered
 $("#task-form-modal").on("show.bs.modal", function() {
   // clear values
@@ -164,13 +169,9 @@ $("#task-form-modal").on("shown.bs.modal", function() {
   $("#modalTaskDescription").trigger("focus");
 });
 
-// minDate set to be one day from current date
-$("#modalDueDate").datepicker({
-  minDate: 1
-});
 
 // save button in modal was clicked
-$("#task-form-modal .btn-primary").click(function() {
+$("#task-form-modal .btn-save").click(function() {
   // get form values
   var taskText = $("#modalTaskDescription").val();
   var taskDate = $("#modalDueDate").val();
