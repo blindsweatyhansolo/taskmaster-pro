@@ -84,17 +84,19 @@ $(".card .list-group").sortable({
   helper: "clone",
   // activate/deactivate trigger once for all connected lists as soon as dragging starts and stops
   activate: function(event) {
-    console.log("activate", this);
+    $(this).addClass("dropover");
+    $(".bottom-trash").addClass("bottom-trash-drag");
   },
   deactivate: function(event) {
-    console.log("deactivate", this);
+    $(this).removeClass("dropover");
+    $(".bottom-trash").removeClass("bottom-trash-drag");
   },
   // over/out trigger when a dragged item enters or leaves a connected list
   over: function(event) {
-    console.log("over", event.target);
+    $(event.target).addClass("dropover-active");
   },
   out: function(event) {
-    console.log("out", event.target);
+    $(event.target).removeClass("dropover-active");
   },
   // update triggers when the contents of a list have changed (re-ordered, removed, added, etc)
   update: function() {
@@ -140,12 +142,13 @@ $("#trash").droppable({
   // removes dragged element from dom, triggers update() in sortable
   drop: function(event, ui) {
     ui.draggable.remove();
+    $(".bottom-trash").removeClass("bottom-trash-active");
   },
   over: function(event, ui) {
-    console.log(ui);
+    $(".bottom-trash").addClass("bottom-trash-active");
   },
   out: function(event, ui) {
-    console.log(ui);
+    $(".bottom-trash").removeClass("bottom-trash-active");
   }
 });
 
